@@ -2,6 +2,10 @@
 
 Este documento describe una posible evolucion arquitectonica de Relatos de Papel hacia una solucion full stack basada en una SPA React y un backend de microservicios. La arquitectura aqui descrita no forma parte del alcance implementado en la practica DWFS actual, pero sirve como referencia para la evolucion posterior del proyecto.
 
+## Diagrama conceptual
+
+![Arquitectura futura de Relatos de Papel](assets/arquitectura-futura.svg)
+
 ## Vision general
 
 La version actual es una SPA frontend con datos mock. En una evolucion futura, la aplicacion podria dividirse en dos grandes bloques:
