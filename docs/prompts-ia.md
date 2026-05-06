@@ -43,3 +43,7 @@ Haz push.
 ## Nota
 
 Los archivos de mocks `frontend/src/mocks/books.js`, `frontend/src/mocks/user.js` y `frontend/src/mocks/orders.js` han sido generados con ayuda de IA a partir del prompt anterior.
+
+## Actualizacion de estilos
+
+La hoja `frontend/src/styles/main.css` ha sido generada y mejorada con ayuda de IA para reforzar la identidad visual, la consistencia entre pantallas y el comportamiento responsive de la SPA.

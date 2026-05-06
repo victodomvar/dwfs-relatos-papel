@@ -13,7 +13,7 @@ function CheckoutPage() {
 
   if (cartItems.length === 0) {
     return (
-      <section className="page">
+      <section className="page page-checkout">
         <span className="eyebrow">Compra</span>
         <h1>CheckoutPage</h1>
         <p className="lead">
@@ -30,7 +30,7 @@ function CheckoutPage() {
   }
 
   return (
-    <section className="page">
+    <section className="page page-checkout">
       <span className="eyebrow">Compra</span>
       <h1>CheckoutPage</h1>
       <p className="lead">

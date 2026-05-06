@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 function NotFoundPage() {
   return (
-    <section className="page">
+    <section className="page page-not-found">
       <span className="eyebrow">404</span>
       <h1>NotFoundPage</h1>
       <p className="lead">

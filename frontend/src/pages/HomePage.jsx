@@ -10,7 +10,7 @@ function HomePage() {
   const filteredBooks = useBookSearch(books, searchTerm)
 
   return (
-    <section className="page">
+    <section className="page page-home">
       <span className="eyebrow">Catalogo</span>
       <h1>Nuestros libros</h1>
       <p className="lead">

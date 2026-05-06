@@ -25,7 +25,7 @@ function BookDetailPage() {
 
   if (!book) {
     return (
-      <section className="page">
+      <section className="page page-book-detail page-book-detail-empty">
         <span className="eyebrow">Detalle de libro</span>
         <h1>Libro no encontrado</h1>
         <p className="lead">
@@ -41,7 +41,7 @@ function BookDetailPage() {
   }
 
   return (
-    <section className="page">
+    <section className="page page-book-detail">
       <span className="eyebrow">Detalle de libro</span>
       <h1>{book.title}</h1>
       <p className="lead">

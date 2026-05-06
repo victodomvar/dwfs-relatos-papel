@@ -29,7 +29,7 @@ function LoginPage() {
   }
 
   return (
-    <section className="page">
+    <section className="page page-login">
       <span className="eyebrow">Acceso</span>
       <h1>LoginPage</h1>
       <p className="lead">

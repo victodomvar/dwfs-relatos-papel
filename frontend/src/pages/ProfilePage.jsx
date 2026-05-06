@@ -10,7 +10,7 @@ function ProfilePage() {
     .slice(0, 5)
 
   return (
-    <section className="page">
+    <section className="page page-profile">
       <span className="eyebrow">Cuenta</span>
       <h1>Mi perfil</h1>
       <p className="lead">

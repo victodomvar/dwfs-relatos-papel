@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 function LandingPage() {
   return (
-    <section className="page page-hero">
+    <section className="page page-hero page-landing">
       <span className="eyebrow">SPA base</span>
       <h1>Historias que merecen quedarse en tu estanteria.</h1>
       <p className="lead">
