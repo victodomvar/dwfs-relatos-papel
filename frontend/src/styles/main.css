@@ -404,6 +404,99 @@ h2 {
   border: 1px solid var(--line);
 }
 
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr);
+  gap: 28px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+.profile-card,
+.order-card {
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.profile-card {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+}
+
+.profile-avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fffdfa;
+  box-shadow: 0 12px 24px rgba(73, 53, 31, 0.12);
+}
+
+.profile-copy {
+  display: grid;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.profile-orders {
+  min-width: 0;
+}
+
+.profile-orders-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.order-list {
+  display: grid;
+  gap: 18px;
+}
+
+.order-card {
+  padding: 24px;
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.order-meta,
+.order-items {
+  color: var(--muted);
+}
+
+.order-meta {
+  display: grid;
+  gap: 8px;
+  text-align: right;
+}
+
+.order-items {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.order-item-title {
+  color: var(--title);
+  font-weight: 600;
+}
+
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -623,6 +716,7 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .profile-layout,
   .book-detail-layout,
   .catalogue-layout,
   .checkout-layout,
@@ -634,7 +728,17 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .profile-orders-header,
+  .order-card-header,
   .checkout-item {
+    flex-direction: column;
+  }
+
+  .order-meta {
+    text-align: left;
+  }
+
+  .order-item-row {
     flex-direction: column;
   }
 
