@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 const navigationLinks = [
   { to: '/', label: 'Inicio' },
   { to: '/books', label: 'Catalogo' },
   { to: '/checkout', label: 'Checkout' },
-  { to: '/profile', label: 'Perfil' },
-  { to: '/login', label: 'Acceder' },
 ]
 
 function Header() {
+  const { user, isAuthenticated, logout } = useAuth()
+
   return (
     <header className="site-header">
       <div className="brand-block">
@@ -26,6 +27,21 @@ function Header() {
             {link.label}
           </Link>
         ))}
+
+        {isAuthenticated ? (
+          <>
+            <Link className="nav-link" to="/profile">
+              {user.name}
+            </Link>
+            <button type="button" className="nav-button" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        )}
       </nav>
     </header>
   )
