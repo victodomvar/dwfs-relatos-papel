@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useCart } from '../context/CartContext'
 
 const navigationLinks = [
   { to: '/', label: 'Inicio' },
@@ -9,6 +10,7 @@ const navigationLinks = [
 
 function Header() {
   const { user, isAuthenticated, logout } = useAuth()
+  const { totalItems } = useCart()
 
   return (
     <header className="site-header">
@@ -24,7 +26,7 @@ function Header() {
       <nav className="site-nav" aria-label="Principal">
         {navigationLinks.map((link) => (
           <Link key={link.to} className="nav-link" to={link.to}>
-            {link.label}
+            {link.to === '/checkout' ? `${link.label} (${totalItems})` : link.label}
           </Link>
         ))}
 

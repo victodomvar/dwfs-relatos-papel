@@ -312,6 +312,81 @@ h2 {
   align-content: start;
 }
 
+.cart-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.cart-list {
+  display: grid;
+  gap: 18px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.cart-item-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.cart-item-actions {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  justify-items: end;
+}
+
+.quantity-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fffdfa;
+}
+
+.quantity-button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink-soft);
+  color: var(--accent-strong);
+  cursor: pointer;
+}
+
+.quantity-value,
+.cart-subtotal {
+  color: var(--title);
+  font-weight: 700;
+}
+
+.cart-summary {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.cart-summary-actions {
+  display: grid;
+  gap: 12px;
+}
+
 .site-footer {
   margin-bottom: 24px;
   padding: 18px 8px 0;
@@ -351,5 +426,17 @@ h2 {
 
   .auth-layout {
     grid-template-columns: 1fr;
+  }
+
+  .cart-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    flex-direction: column;
+  }
+
+  .cart-item-actions {
+    justify-items: start;
   }
 }
