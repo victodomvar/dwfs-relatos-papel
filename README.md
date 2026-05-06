@@ -6,6 +6,14 @@ SPA de libreria online desarrollada con React y Vite. El proyecto simula una tie
 
 Relatos de Papel es una aplicacion frontend orientada a practicar arquitectura de SPA, enrutado, gestion de estado compartido y experiencia de usuario responsive. No usa backend real: los libros, el usuario y los pedidos se sirven desde mocks locales.
 
+## Contexto funcional del producto
+
+El proyecto se basa en el caso transversal Relatos de Papel: una libreria que aborda su transformacion digital para ampliar su alcance mas alla de la tienda fisica, permitir la exploracion de catalogo online y facilitar la compra de libros fisicos y digitales.
+
+El contexto funcional completo contempla gestion de usuarios, busqueda avanzada por titulo, autor, genero o palabras clave, filtros, carrito, control de stock, pagos, pedidos, productos digitales, resenas, soporte, internacionalizacion, accesibilidad y requisitos de rendimiento.
+
+En esta practica DWFS se implementa una version frontend simulada centrada en catalogo, busqueda por titulo, detalle de libro, carrito, login mock, checkout protegido y perfil con pedidos. El detalle del alcance implementado y de la posible evolucion futura esta documentado en [Contexto funcional](docs/contexto-funcional.md).
+
 ## Tecnologias usadas
 
 - React 19
@@ -22,8 +30,10 @@ Relatos de Papel es una aplicacion frontend orientada a practicar arquitectura d
 .
 ├── README.md
 ├── docs
+│   ├── contexto-funcional.md
 │   ├── guion-video.md
-│   └── prompts-ia.md
+│   ├── prompts-ia.md
+│   └── url-despliegue.txt
 └── frontend
     ├── package.json
     ├── public
@@ -79,6 +89,14 @@ cd frontend
 npm run preview
 ```
 
+## Despliegue
+
+La aplicacion esta desplegada en Vercel:
+
+```text
+https://dwfs-relatos-papel.vercel.app/
+```
+
 ## Rutas principales
 
 - `/`: landing page
@@ -118,5 +136,7 @@ npm run preview
 
 ## Documentacion adicional
 
+- [Contexto funcional](docs/contexto-funcional.md)
 - [Guion de video](docs/guion-video.md)
 - [Registro de uso de IA](docs/prompts-ia.md)
+- [URL de despliegue](docs/url-despliegue.txt)
