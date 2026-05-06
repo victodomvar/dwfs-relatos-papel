@@ -1,31 +1,44 @@
-import { Link } from 'react-router-dom'
-
-const featuredBooks = [
-  { id: 'el-mapa-secreto', title: 'El mapa secreto', author: 'Irene Solis' },
-  { id: 'nieve-de-tinta', title: 'Nieve de tinta', author: 'Gael Vera' },
-  { id: 'atlas-del-silencio', title: 'Atlas del silencio', author: 'Luna Prado' },
-]
+import { useEffect, useState } from 'react'
+import BookList from '../components/BookList'
+import Cart from '../components/Cart'
+import SearchBar from '../components/SearchBar'
+import { books } from '../mocks/books'
 
 function HomePage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filteredBooks, setFilteredBooks] = useState(books)
+
+  useEffect(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase()
+
+    if (!normalizedSearch) {
+      setFilteredBooks(books)
+      return
+    }
+
+    setFilteredBooks(
+      books.filter((book) => book.title.toLowerCase().includes(normalizedSearch)),
+    )
+  }, [searchTerm])
+
   return (
     <section className="page">
       <span className="eyebrow">Catalogo</span>
-      <h1>HomePage</h1>
+      <h1>Nuestros libros</h1>
       <p className="lead">
-        Vista principal para listar libros disponibles. De momento deja una
-        muestra estatica de contenido.
+        Explora el catalogo completo de Relatos de Papel y revisa tu carrito sin
+        salir de la vista principal.
       </p>
 
-      <div className="card-grid">
-        {featuredBooks.map((book) => (
-          <article key={book.id} className="card">
-            <p className="card-kicker">{book.author}</p>
-            <h2>{book.title}</h2>
-            <Link className="text-link" to={`/books/${book.id}`}>
-              Ver detalle
-            </Link>
-          </article>
-        ))}
+      <div className="catalogue-layout">
+        <div className="catalogue-main">
+          <SearchBar value={searchTerm} onChange={setSearchTerm} />
+          <BookList books={filteredBooks} />
+        </div>
+
+        <div className="catalogue-cart">
+          <Cart />
+        </div>
       </div>
     </section>
   )

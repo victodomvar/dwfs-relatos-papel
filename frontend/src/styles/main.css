@@ -300,6 +300,14 @@ h2 {
   border-color: var(--accent);
 }
 
+.search-bar {
+  margin-top: 32px;
+}
+
+.search-field {
+  max-width: 520px;
+}
+
 .form-error {
   padding: 12px 14px;
   border: 1px solid rgba(159, 63, 45, 0.24);
@@ -310,6 +318,77 @@ h2 {
 
 .auth-help {
   align-content: start;
+}
+
+.catalogue-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.8fr);
+  gap: 28px;
+  margin-top: 12px;
+  align-items: start;
+}
+
+.catalogue-main {
+  min-width: 0;
+}
+
+.catalogue-cart .cart-panel {
+  grid-template-columns: 1fr;
+  margin-top: 32px;
+}
+
+.catalogue-cart .cart-summary {
+  position: sticky;
+  top: 24px;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.book-card {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 36px rgba(73, 53, 31, 0.07);
+}
+
+.book-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--ink-soft);
+}
+
+.book-card-body {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+}
+
+.book-meta {
+  color: var(--muted);
+}
+
+.book-price {
+  color: var(--title);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.empty-state {
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
 }
 
 .cart-panel {
@@ -428,6 +507,7 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .catalogue-layout,
   .cart-panel {
     grid-template-columns: 1fr;
   }
@@ -438,5 +518,9 @@ h2 {
 
   .cart-item-actions {
     justify-items: start;
+  }
+
+  .catalogue-cart .cart-summary {
+    position: static;
   }
 }
