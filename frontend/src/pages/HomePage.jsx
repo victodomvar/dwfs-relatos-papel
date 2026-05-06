@@ -1,25 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import BookList from '../components/BookList'
 import Cart from '../components/Cart'
 import SearchBar from '../components/SearchBar'
+import useBookSearch from '../hooks/useBookSearch'
 import { books } from '../mocks/books'
 
 function HomePage() {
   const [searchTerm, setSearchTerm] = useState('')
-  const [filteredBooks, setFilteredBooks] = useState(books)
-
-  useEffect(() => {
-    const normalizedSearch = searchTerm.trim().toLowerCase()
-
-    if (!normalizedSearch) {
-      setFilteredBooks(books)
-      return
-    }
-
-    setFilteredBooks(
-      books.filter((book) => book.title.toLowerCase().includes(normalizedSearch)),
-    )
-  }, [searchTerm])
+  const filteredBooks = useBookSearch(books, searchTerm)
 
   return (
     <section className="page">

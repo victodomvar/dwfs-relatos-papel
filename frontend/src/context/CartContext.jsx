@@ -1,9 +1,10 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const CartContext = createContext(null)
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useLocalStorage('relatos-cart-items', [])
 
   const addToCart = (book) => {
     setCartItems((currentItems) => {

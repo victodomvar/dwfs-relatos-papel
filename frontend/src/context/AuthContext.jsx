@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 import { mockUser } from '../mocks/user'
 
 const AuthContext = createContext(null)
@@ -9,7 +10,7 @@ function sanitizeUser(user) {
 }
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useLocalStorage('relatos-auth-user', null)
 
   const login = (email, password) => {
     const normalizedEmail = email.trim().toLowerCase()
