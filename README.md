@@ -14,6 +14,14 @@ El contexto funcional completo contempla gestion de usuarios, busqueda avanzada 
 
 En esta practica DWFS se implementa una version frontend simulada centrada en catalogo, busqueda por titulo, detalle de libro, carrito, login mock, checkout protegido y perfil con pedidos. El detalle del alcance implementado y de la posible evolucion futura esta documentado en [Contexto funcional](docs/contexto-funcional.md).
 
+## Arquitectura futura
+
+La version actual corresponde al frontend de la solucion. Como evolucion futura, Relatos de Papel podria convertirse en una arquitectura full stack basada en una SPA React desplegada en Vercel o Netlify y un backend de microservicios Spring Boot.
+
+La arquitectura propuesta contempla un API Gateway, servicios de catalogo, pedidos, usuarios y comunicaciones, bases de datos independientes por servicio, cache con Redis, busqueda con Elasticsearch u OpenSearch, mensajeria asincrona con RabbitMQ, comunicaciones en tiempo real mediante WebSocket e integraciones externas como pasarela de pago, SMTP y APIs de IA.
+
+Esta vision queda documentada en [Arquitectura futura](docs/arquitectura-futura.md). No forma parte del alcance implementado en esta practica, pero justifica como el frontend actual podria evolucionar hacia la aplicacion completa.
+
 ## Tecnologias usadas
 
 - React 19
@@ -30,6 +38,7 @@ En esta practica DWFS se implementa una version frontend simulada centrada en ca
 .
 ├── README.md
 ├── docs
+│   ├── arquitectura-futura.md
 │   ├── contexto-funcional.md
 │   ├── guion-video.md
 │   ├── prompts-ia.md
@@ -137,6 +146,7 @@ https://dwfs-relatos-papel.vercel.app/
 ## Documentacion adicional
 
 - [Contexto funcional](docs/contexto-funcional.md)
+- [Arquitectura futura](docs/arquitectura-futura.md)
 - [Guion de video](docs/guion-video.md)
 - [Registro de uso de IA](docs/prompts-ia.md)
 - [URL de despliegue](docs/url-despliegue.txt)
