@@ -528,6 +528,60 @@ h2 {
   gap: 12px;
 }
 
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+.checkout-list {
+  display: grid;
+  gap: 18px;
+}
+
+.checkout-item,
+.checkout-summary {
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.checkout-item-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.checkout-subtotal,
+.checkout-total {
+  color: var(--title);
+  font-weight: 700;
+}
+
+.checkout-total {
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
+
+.checkout-summary {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+}
+
+.checkout-actions {
+  display: grid;
+  gap: 12px;
+}
+
 .site-footer {
   margin-bottom: 24px;
   padding: 18px 8px 0;
@@ -571,12 +625,17 @@ h2 {
 
   .book-detail-layout,
   .catalogue-layout,
+  .checkout-layout,
   .cart-panel {
     grid-template-columns: 1fr;
   }
 
   .book-detail-card {
     grid-template-columns: 1fr;
+  }
+
+  .checkout-item {
+    flex-direction: column;
   }
 
   .cart-item {
