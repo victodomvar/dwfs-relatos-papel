@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
+  <title id="title">Arquitectura futura de Relatos de Papel</title>
+  <desc id="desc">Diagrama conceptual con frontend React, API Gateway, microservicios Spring Boot, bases de datos, RabbitMQ, Redis, busqueda, SMTP y API externa de IA.</desc>
+  <defs>
+    <style>
+      .bg{fill:#ffffff}.box{fill:#fffdf8;stroke:#2c7be5;stroke-width:2;rx:14}.frontend{fill:#f7fbff;stroke:#e83e8c;stroke-width:3;rx:18}.backend{fill:#f8fff8;stroke:#22a447;stroke-width:3;rx:24}.service{fill:#ffffff;stroke:#66b86a;stroke-width:2;rx:12}.db{fill:#e9f4ff;stroke:#0b6fa4;stroke-width:2}.cache{fill:#fff1f1;stroke:#d63333;stroke-width:2;rx:10}.bus{fill:#eef5ff;stroke:#6c8ebf;stroke-width:2;rx:18}.external{fill:#f6f8ff;stroke:#2c7be5;stroke-width:2;rx:14}.text{font-family:Arial,Helvetica,sans-serif;fill:#1f1b18}.small{font-size:14px}.label{font-size:16px;font-weight:700}.title{font-size:24px;font-weight:700}.muted{fill:#6b625c}.arrow{stroke:#333;stroke-width:2;fill:none;marker-end:url(#arrow)}.dashed{stroke-dasharray:6 5}.pink{stroke:#e83e8c}.green{stroke:#22a447}.blue{stroke:#2c7be5}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+  </defs>
+  <rect class="bg" width="1100" height="760"/>
+  <text x="40" y="45" class="text title">Relatos de Papel · arquitectura futura</text>
+  <text x="40" y="70" class="text small muted">SPA React + backend Spring Boot basado en microservicios</text>
+
+  <rect x="120" y="95" width="760" height="130" class="frontend"/>
+  <text x="145" y="125" class="text label">Frontend</text>
+  <text x="145" y="152" class="text small">React SPA · Vite · React Router</text>
+  <text x="145" y="178" class="text small">Despliegue: Vercel / Netlify</text>
+  <text x="695" y="126" class="text small muted">Web / móvil</text>
+  <rect x="430" y="130" width="130" height="60" class="box"/>
+  <text x="462" y="166" class="text label">React</text>
+
+  <rect x="120" y="285" width="760" height="395" class="backend"/>
+  <text x="145" y="318" class="text label">Backend futuro</text>
+  <text x="145" y="342" class="text small muted">Spring Boot · microservicios · comunicación REST y eventos</text>
+
+  <rect x="455" y="360" width="160" height="65" class="service"/>
+  <text x="490" y="386" class="text label">API Gateway</text>
+  <text x="485" y="410" class="text small muted">Spring Cloud</text>
+
+  <rect x="180" y="475" width="135" height="75" class="service"/>
+  <text x="212" y="505" class="text label">Catalog</text>
+  <text x="207" y="529" class="text small muted">libros / stock</text>
+  <ellipse cx="248" cy="585" rx="58" ry="24" class="db"/>
+  <text x="226" y="591" class="text small">DB</text>
+
+  <rect x="360" y="475" width="135" height="75" class="service"/>
+  <text x="399" y="505" class="text label">Orders</text>
+  <text x="394" y="529" class="text small muted">checkout</text>
+  <ellipse cx="428" cy="585" rx="58" ry="24" class="db"/>
+  <text x="406" y="591" class="text small">DB</text>
+
+  <rect x="540" y="475" width="135" height="75" class="service"/>
+  <text x="581" y="505" class="text label">Users</text>
+  <text x="571" y="529" class="text small muted">perfil / auth</text>
+  <ellipse cx="608" cy="585" rx="58" ry="24" class="db"/>
+  <text x="586" y="591" class="text small">DB</text>
+
+  <rect x="720" y="475" width="135" height="75" class="service"/>
+  <text x="735" y="505" class="text label">Comms</text>
+  <text x="742" y="529" class="text small muted">email / avisos</text>
+
+  <rect x="690" y="580" width="105" height="55" class="cache"/>
+  <text x="719" y="612" class="text label">Redis</text>
+  <text x="710" y="630" class="text small muted">cache</text>
+
+  <rect x="245" y="640" width="520" height="45" class="bus"/>
+  <text x="287" y="668" class="text label">RabbitMQ · Event Bus</text>
+
+  <rect x="25" y="440" width="120" height="150" class="external"/>
+  <text x="55" y="500" class="text label">Search</text>
+  <text x="35" y="528" class="text small muted">Elastic /</text>
+  <text x="35" y="548" class="text small muted">OpenSearch</text>
+
+  <rect x="925" y="420" width="140" height="120" class="external"/>
+  <text x="962" y="468" class="text label">IA API</text>
+  <text x="954" y="494" class="text small muted">Gemini u</text>
+  <text x="948" y="514" class="text small muted">otro LLM</text>
+
+  <rect x="925" y="570" width="140" height="80" class="external"/>
+  <text x="965" y="610" class="text label">SMTP</text>
+  <text x="953" y="633" class="text small muted">correo</text>
+
+  <path d="M500 225 L500 360" class="arrow"/>
+  <text x="512" y="277" class="text small">HTTPS</text>
+  <path d="M455 425 L248 475" class="arrow"/>
+  <path d="M500 425 L428 475" class="arrow"/>
+  <path d="M570 425 L608 475" class="arrow"/>
+  <path d="M615 425 L787 475" class="arrow"/>
+  <text x="540" y="455" class="text small">HTTP</text>
+
+  <path d="M248 550 L248 561" class="arrow"/>
+  <path d="M428 550 L428 561" class="arrow"/>
+  <path d="M608 550 L608 561" class="arrow"/>
+  <path d="M248 550 L340 640" class="arrow dashed"/>
+  <path d="M428 550 L465 640" class="arrow dashed"/>
+  <path d="M608 550 L575 640" class="arrow dashed"/>
+  <path d="M787 550 L705 640" class="arrow dashed"/>
+  <text x="365" y="625" class="text small">AMQP</text>
+
+  <path d="M180 505 L145 505" class="arrow dashed"/>
+  <text x="42" y="420" class="text small">HTTPS</text>
+  <path d="M855 508 L925 480" class="arrow dashed"/>
+  <text x="865" y="475" class="text small">HTTPS</text>
+  <path d="M787 550 L925 610" class="arrow dashed"/>
+  <text x="860" y="598" class="text small">SMTP</text>
+  <path d="M675 505 L690 600" class="arrow dashed"/>
+
+  <text x="145" y="725" class="text small muted">Infraestructura posible: Railway · DigitalOcean · AWS · Azure</text>
+</svg>
