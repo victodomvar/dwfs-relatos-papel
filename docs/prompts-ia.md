@@ -1,49 +1,57 @@
 # Prompts IA
 
-## Prompt usado
+## Resumen de prompts usados
 
-```text
-Estamos en un repositorio cuya aplicación React + Vite está dentro de la carpeta frontend. Todos los comandos npm deben ejecutarse desde frontend.
+Durante el desarrollo se usaron prompts sucesivos para construir y refinar la aplicacion:
 
-Implementa los datos mock de la aplicación Relatos de Papel.
+- Crear la estructura base de la SPA con React Router, layout comun y paginas iniciales.
+- Generar mocks de libros, usuario y pedidos.
+- Implementar autenticacion simulada y rutas protegidas.
+- Implementar carrito global con contexto y componentes asociados.
+- Construir el catalogo con busqueda por titulo.
+- Implementar detalle de libro y flujo de anadir al carrito.
+- Implementar checkout protegido.
+- Implementar perfil protegido con pedidos recientes.
+- Extraer hooks personalizados para persistencia y busqueda.
+- Mejorar el diseño responsive y la consistencia visual.
+- Redactar la documentacion final del proyecto.
 
-Crea:
-- frontend/src/mocks/books.js
-- frontend/src/mocks/user.js
-- frontend/src/mocks/orders.js
+## Que se genero con IA
 
-Requisitos para books.js:
-- Exporta una constante books.
-- Debe contener 30 libros ficticios.
-- Cada libro debe tener:
-  id, title, author, isbn, price, description, category, imageUrl, stock, rating.
-- Usa ids simples compatibles con rutas, por ejemplo "book-1", "book-2".
-- Usa imágenes externas estables o placeholders mediante URLs.
-- Los títulos deben estar en español y encajar con una tienda de libros.
+La IA se utilizo como apoyo para generar o acelerar:
 
-Requisitos para user.js:
-- Exporta una constante mockUser.
-- Debe tener id, name, surname, email, password, avatarUrl y address.
+- Estructura inicial de la SPA.
+- Configuracion del router.
+- Layout, header y footer.
+- Paginas principales.
+- Contextos `AuthContext` y `CartContext`.
+- Componentes de catalogo, carrito y pedidos.
+- Mocks de libros, usuario y pedidos.
+- Hooks personalizados `useLocalStorage` y `useBookSearch`.
+- Hoja global `frontend/src/styles/main.css`.
+- README y documentos de apoyo en `docs`.
 
-Requisitos para orders.js:
-- Exporta una constante orders.
-- Debe tener 5 pedidos asociados al usuario mock.
-- Cada pedido debe tener id, date, status, total y items.
-- Cada item debe tener bookId, title, quantity y price.
+## Trazabilidad concreta
 
-Actualiza docs/prompts-ia.md añadiendo el prompt usado y una nota indicando que estos mocks han sido generados con IA.
+- Los archivos de mocks `frontend/src/mocks/books.js`, `frontend/src/mocks/user.js` y `frontend/src/mocks/orders.js` fueron generados con ayuda de IA.
+- La hoja `frontend/src/styles/main.css` fue generada y refinada con ayuda de IA.
+- Parte de la documentacion final tambien fue redactada con apoyo de IA y despues revisada.
 
-No modifiques todavía las páginas para consumir estos datos.
+## Calidad estimada de respuestas
 
-Ejecuta cd frontend && npm run build.
-Si el build pasa, haz commit con mensaje: "Add mock data for books user and orders".
-Haz push.
-```
+- Respuestas correctas o parcialmente correctas: `92%`
+- Respuestas incorrectas: `8%`
 
-## Nota
+Estas cifras son una estimacion manual basada en el flujo real de trabajo, incluyendo pequeños ajustes posteriores de estilos, contenido o integracion.
 
-Los archivos de mocks `frontend/src/mocks/books.js`, `frontend/src/mocks/user.js` y `frontend/src/mocks/orders.js` han sido generados con ayuda de IA a partir del prompt anterior.
+## Lineas aproximadas generadas con IA
 
-## Actualizacion de estilos
+- Aproximadamente `2200` a `2600` lineas entre componentes, contextos, hooks, mocks, estilos y documentacion.
 
-La hoja `frontend/src/styles/main.css` ha sido generada y mejorada con ayuda de IA para reforzar la identidad visual, la consistencia entre pantallas y el comportamiento responsive de la SPA.
+## Tiempo estimado ahorrado
+
+- Ahorro estimado: entre `8` y `12` horas de trabajo manual, especialmente en scaffolding, estilos base, mocks, documentacion y tareas repetitivas de integracion.
+
+## Criterio de uso
+
+La IA se utilizo para acelerar implementacion y redaccion, pero cada cambio se reviso en el repositorio y se valido con `npm run build` ejecutado desde `frontend`.
