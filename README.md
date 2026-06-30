@@ -106,6 +106,123 @@ La aplicacion esta desplegada en Vercel:
 https://dwfs-relatos-papel.vercel.app/
 ```
 
+## Backend - Microservicios
+
+Ademas del frontend de la Actividad 1, se ha desarrollado un backend local con Java 17, Spring Boot y Spring Cloud siguiendo una arquitectura de microservicios.
+
+Servicios actuales:
+
+- `relatos-eureka-server`: servidor de descubrimiento con Netflix Eureka.
+- `relatos-api-gateway`: punto unico de entrada con Spring Cloud Gateway.
+- `relatos-catalogue-service`: microservicio de catalogo de libros.
+- `relatos-orders-service`: microservicio de pedidos.
+- `database/`: configuracion Docker Compose de PostgreSQL.
+
+Arquitectura textual:
+
+```text
+Cliente / curl / frontend
+  -> API Gateway :8080
+  -> Eureka Service Discovery :8761
+  -> catalogue-service :8081 -> catalogue_db
+  -> orders-service :8082 -> orders_db
+```
+
+PostgreSQL se ejecuta en `localhost:5432` con usuario `relatos` y password `relatos`. Se usan dos bases de datos separadas, no dos schemas:
+
+- `catalogue_db` para `catalogue-service`.
+- `orders_db` para `orders-service`.
+
+El backend no esta desplegado publicamente. Las pruebas finales se han realizado en local con curl y consulta directa a PostgreSQL, no con Postman.
+
+### Orden de arranque
+
+1. PostgreSQL.
+2. Eureka Server.
+3. Catalogue Service con perfil `postgres`.
+4. Orders Service con perfil `postgres`.
+5. API Gateway.
+
+### Comandos de arranque
+
+PostgreSQL:
+
+```bash
+cd ../database
+docker-compose up -d
+```
+
+Eureka Server:
+
+```bash
+cd ../relatos-eureka-server
+mvn spring-boot:run
+```
+
+Catalogue Service con PostgreSQL:
+
+```bash
+cd ../relatos-catalogue-service
+mvn spring-boot:run -Dspring-boot.run.profiles=postgres
+```
+
+Orders Service con PostgreSQL:
+
+```bash
+cd ../relatos-orders-service
+mvn spring-boot:run -Dspring-boot.run.profiles=postgres
+```
+
+API Gateway:
+
+```bash
+cd ../relatos-api-gateway
+mvn spring-boot:run
+```
+
+URLs locales principales:
+
+- Gateway: `http://localhost:8080`
+- Eureka dashboard: `http://localhost:8761`
+- Catalogue Service: `http://localhost:8081`
+- Orders Service: `http://localhost:8082`
+
+### Pruebas finales con curl
+
+Consultar catalogo:
+
+```bash
+curl http://localhost:8080/api/books
+```
+
+Consultar pedidos:
+
+```bash
+curl http://localhost:8080/api/orders
+```
+
+Crear pedido:
+
+```bash
+curl -i -X POST http://localhost:8080/api/orders -H "Content-Type: application/json" --data-raw '{"bookId":1,"customerEmail":"cliente3@relatosdepapel.com","quantity":2}'
+```
+
+El resultado esperado del `POST` es `HTTP 201 Created`, con `status` igual a `CREATED` y `totalPrice` calculado a partir del precio del libro y la cantidad.
+
+### Validacion en PostgreSQL
+
+Comprobar persistencia del pedido:
+
+```bash
+docker exec -it relatos-postgres psql -U relatos -d orders_db -c "SELECT * FROM purchase_orders;"
+```
+
+Comprobar catalogo:
+
+```bash
+docker exec -it relatos-postgres psql -U relatos -d catalogue_db -c "SELECT id, title, price FROM books LIMIT 5;"
+```
+
 ## Rutas principales
 
 - `/`: landing page
@@ -149,4 +266,6 @@ https://dwfs-relatos-papel.vercel.app/
 - [Arquitectura futura](docs/arquitectura-futura.md)
 - [Guion de video](docs/guion-video.md)
 - [Registro de uso de IA](docs/prompts-ia.md)
+- [Uso de IA en el backend](docs/uso-ia-backend.md)
+- [Pruebas finales del backend](docs/pruebas-backend.md)
 - [URL de despliegue](docs/url-despliegue.txt)
